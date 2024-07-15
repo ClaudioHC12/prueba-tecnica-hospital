@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Citas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Lista de Citas</h1>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Consultorio</th>
+                <th>Doctor</th>
+                <th>Horario de Consulta</th>
+                <th>Nombre del Paciente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cita : ${citas}">
+                <td th:text="${cita.consultorio.numeroConsultorio}">Consultorio</td>
+                <td th:text="${cita.doctor.nombre}">Doctor</td>
+                <td th:text="${cita.horarioConsulta}">Horario</td>
+                <td th:text="${cita.nombrePaciente}">Paciente</td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/citas/new}" class="btn btn-primary">Nueva Cita</a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
